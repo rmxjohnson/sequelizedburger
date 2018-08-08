@@ -12,12 +12,14 @@ Eat-Da_Burger is restaurant app that lets users input the names of burgers they 
 The burger logger uses MySQL, Node, Express, Handlebars, and a sequalized ORM.  The app follows the MVC design pattern.  Node and MySQL are to query and route data in the app.  Handlebars is used to generate the HTML. 
 
 # Link to deployed project
-https://burger199.herokuapp.com/
+https://sequelizedburger199.herokuapp.com/
 
 # Links to GitHub
-https://github.com/rmxjohnson/burger.git
+https://github.com/rmxjohnson/sequelizedburger.git
 
-https://rmxjohnson.github.io/burger/
+https://rmxjohnson.github.io/sequelizedburger/
+
+
 
 
 # Built with:
