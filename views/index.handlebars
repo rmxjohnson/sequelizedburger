@@ -1,0 +1,97 @@
+<h1>
+    <img src="/assets/img/singleburger1.jpg" class=center alt="burger" id="singleburger">
+    <p>Eat-Da-Burger App</p>
+</h1>
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="col-md-12 box" id="menu1">
+                <h2>Burgers Ready to Devour</h2>
+
+                <ul>
+                    <!-- id: the burgers table id that is part of the data selected -->
+                    {{#each item}} {{#unless devoured}}
+                    <li>
+                        <!-- when click "Devour" button, the entry is moved to the "Devoured" list -->
+
+                        <span>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <!--<h4>{{this.id}} : {{this.burger_name}} </h4>-->
+                                    <h4> {{this.burger_name}} </h4>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <form class="form-group devour-class" id="devour-form">
+                                        <input type="hidden" name="devoured" class="devour_state" value="true"></input>
+                                        <input type="hidden" type="text" class="burger_id" value={{this.id}}>
+
+                                        <input type="text" name="customer" class="customer-input form-control right" id="customer" placeholder="Who Ate This?">
+                                        <center>
+                                            <button id="devour-btn" type="submit" class="center btn-danger change-devour" data-id="{{id}}" data-newdevour="true">Devour Me!</button>
+                                        </center>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </span>
+
+                    </li>
+                    {{/unless}} {{/each}}
+                </ul>
+            </div>
+        </div>
+
+
+
+        <!-- display the burgers already "devoured" with who at it (if provided)-->
+        <div class="col-md-6">
+            <div class="col-md-12 box" id="menu2">
+                <h2>Burgers Already Devoured</h2>
+
+                <ul>
+                    {{#each item}} {{#if devoured}}
+                    <li>
+                        <!-- <h4>{{this.id}} : {{this.burger_name}} -->
+
+                        <!--  List the burger with a customer name if have customer name -->
+                        {{#if this.Customer.customer_name}}
+                        <h4> {{this.burger_name}} (Devoured by {{this.Customer.customer_name}})
+                            <button type="submit" class="right btn-danger delete-burger" data-id="{{id}}">Delete</button>
+                        </h4>
+
+                        <!-- else just list the burger name -->
+                        {{else}}
+                        <h4> {{this.burger_name}}
+                            <button type="submit" class="right btn-danger delete-burger" data-id="{{id}}">Delete</button>
+                        </h4>
+                        {{/if}}
+                    </li>
+                    {{/if}} {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- add a new burger -->
+
+    <div class="row box center" id="add-div">
+        <h2>Add a Burger</h2>
+        <form class="create-form">
+
+            <div class="form-group center">
+                <label for="newburger">Burger Name:</label>
+                <center>
+                    <input class="center" type="text" id="newburger" name="name">
+                </center>
+            </div>
+
+            <button type="submit" class="btn-danger">Add Burger</button>
+
+        </form>
+    </div>
+
+</div>
